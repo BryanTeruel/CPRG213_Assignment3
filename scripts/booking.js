@@ -27,10 +27,10 @@ days.forEach(function(day){
         }
         console.log("Number of Days Selected:", num_of_days);
         
-        calculate_cost()
+        calculate_cost();
         console.groupEnd();
-    })
-})
+    });
+});
 
 
 /********* clear days *********/
@@ -43,11 +43,11 @@ function clear_days(){
     console.group("clear_days()");
     days.forEach(function(day){
         day.classList.remove("clicked");
-    })
+    });
     num_of_days = 0;
     console.log("Number of Days Selected:", num_of_days);
     
-    calculate_cost()
+    calculate_cost();
     console.groupEnd();
 }
 
@@ -55,8 +55,8 @@ function clear_days(){
 /********* change rate *********/
 // when the half-day button is clicked, set the daily rate to $20, add the "clicked" class to the "half" element, remove it from the "full" element, and recalculate the total cost.
 
-let half_button = document.getElementById("half")
-half_button.addEventListener("click", half_day_rate)
+let half_button = document.getElementById("half");
+half_button.addEventListener("click", half_day_rate);
 
 function half_day_rate(){
     console.group("half_day_rate()");
@@ -68,15 +68,15 @@ function half_day_rate(){
         full_button.classList.remove("clicked");
     }
     
-    calculate_cost()
+    calculate_cost();
     console.groupEnd();
 }
 
 
 // when the full-day button is clicked, the daily rate is set back to $35, the clicked class is added to "full" and removed from "half", and the total cost is recalculated.
 
-let full_button = document.getElementById("full")
-full_button.addEventListener("click", full_day_rate)
+let full_button = document.getElementById("full");
+full_button.addEventListener("click", full_day_rate);
 
 function full_day_rate(){
     console.group("full_day_rate()");
@@ -88,7 +88,7 @@ function full_day_rate(){
         half_button.classList.remove("clicked");
     }
     
-    calculate_cost()
+    calculate_cost();
     console.groupEnd();
 }
 
@@ -96,10 +96,11 @@ function full_day_rate(){
 /********* calculate *********/
 // when a calculation is needed, set the innerHTML of the calculated-cost element to the appropriate value
 
-let cost = document.getElementById("calculated-cost")
+let cost = document.getElementById("calculated-cost");
 
 function calculate_cost(){
-    console.group("calculate_cost()")
+    let total_cost = 0;
+    console.group("calculate_cost()");
     total_cost = cost_per_day * num_of_days;
     cost.innerHTML = total_cost;
     console.log("Num of Days:", num_of_days);
